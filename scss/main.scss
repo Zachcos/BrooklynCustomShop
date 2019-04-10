@@ -1,0 +1,445 @@
+$white: #ffffff;
+$inactive: rgba(250, 250, 250, 0.2);
+$highlight: #da1354;
+$dark: #1b2935;
+$darker: #0e1f27;
+
+@mixin crossBrowser($prop, $val) {
+  -ms-#{$prop}: $val;
+  -o-#{$prop}: $val;
+  -moz-#{$prop}: $val;
+  -webkit-#{$prop}: $val;
+  #{$prop}: $val;
+}
+
+/* ---------------------------------------
+=           UNIVERSAL STYLES             =
+--------------------------------------- */
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: $dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.cf:after,
+.cf:before {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  content: " ";
+  clear: both;
+}
+
+.fa-star {
+  font-size: 1.35rem;
+}
+
+.fa-circle {
+  font-size: .75rem;
+}
+
+.fa-angle-left,
+.fa-angle-right {
+  color: $white;
+  font-size: 2rem;
+  margin: 0 .6rem;
+}
+
+.fa-close {
+  color: $white;
+}
+
+.highlight {
+  color: $highlight;
+}
+
+.inactive {
+  color: $inactive;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+.button {
+  border: none;
+  outline: none;
+  border-radius: .5rem;
+  padding: .775rem 2rem;
+  font-weight: 700;
+  color: $white;
+  text-decoration: none;
+  margin: 0 3%;
+}
+
+.button_small {
+  display: block;
+  width: 40%;
+  padding: .8rem 1.5rem .7rem 1.5rem;
+  font-size: .8rem;
+  margin: 1rem auto;
+}
+
+.button_large {
+  font-size: 2rem;
+  padding: 1.1rem 2.5rem 1rem;
+}
+
+.button_highlight {
+  background: $highlight;
+}
+
+.button_secondary {
+  background: $inactive;
+}
+
+/* ---------------------------------------
+=             DESKTOP STYLES             =
+--------------------------------------- */
+.overlay { display: none; }
+header {
+  height: 100px;
+  .wrapper {
+    #logo {
+      font-weight: 700;
+      font-size: 1.35rem;
+      padding: 1.1rem 0;
+      float: left;
+      span {
+        font-weight: 300;
+      }
+    }
+    .nav-btn {
+      display: none;
+    }
+    nav {
+      float: right;
+      padding: 2.4rem 0;
+      a {
+        font-size: .9rem;
+        padding: 0 0 0 4rem;
+        text-decoration: none;
+        color: $dark;
+      }
+    }
+  }
+}
+
+#banner {
+  background: url(../images/banner_background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 8rem 0;
+  .featured_wrapper {
+    width: 750px;
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .featured_image {
+      width: 144px;
+      float: left;
+    }
+    .content {
+      margin-left: 100px;
+      .title {
+        color: $white;
+        display: inline;
+        font-size: 1.75rem;
+      }
+      .rating {
+        display: inline;
+        margin-left: 1rem;
+      }
+      .description {
+        color: $white;
+        padding-top: 2rem;
+        line-height: 1.35rem;
+      }
+      .price {
+        color: $white;
+        font-size: 1.5rem;
+        padding: 2rem 0;
+      }
+    }
+  }
+}
+
+#electrics { background: $dark; }
+#acoustics { background: $darker; }
+
+#electrics .wrapper,
+#acoustics .wrapper {
+  padding: 2.5rem 0;
+  text-align: center;
+  h2.title{
+    color: $white;
+    font-size: 2rem;
+  }
+  .item_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 4rem 0 0 0;
+    .item {
+      width: 225px;
+      float: left;
+      padding: 0 25px 25px;
+      .item_details {
+        .title {
+          color: $white;
+          font-size: 1.1rem;
+          line-height: 1.6rem;
+        }
+        .price {
+          font-size: 1rem;
+          color: $white;
+          padding: 1.5rem 0;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+  .pagination {
+    margin: 4rem auto 1rem auto;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+#contact {
+  display: flex;
+  .contact_left {
+    background: $dark;
+    width: 50%;
+    float: left;
+    margin: 0;
+    text-align: center;
+    padding: 6rem 0;
+    .contact_left_wrapper {
+      width: 90%;
+      margin: 0 auto;
+      .title {
+        color: $white;
+        font-size: 3rem;
+        padding: 0;
+        margin: 0;
+        line-height: 3.4rem;
+      }
+      .email_field {
+        border-bottom: 1px solid $inactive;
+        width: 40%;
+        display: block;
+        margin: 8rem auto;
+        p {
+          color: $inactive;
+          line-height: .6rem;
+        }
+      }
+    }
+  }
+  .contact_right {
+    background: url(../images/mapview.png) center center no-repeat;
+    width: 50%;
+    float: right;
+    margin: 0;
+    text-align: center;
+    .contact_banner {
+      background: $highlight;
+      margin: 0;
+      height: 100px;
+      .title {
+        margin: 0;
+        padding: 1.9rem;
+        color: $white;
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+footer {
+  clear: both;
+  .copyright {
+    text-align: center;
+    height: 50px;
+    font-weight: 700;
+    line-height: 3.7rem;
+    a {
+      text-decoration: none;
+      color: $highlight;
+    }
+    span {
+      font-weight: 300;
+    }
+  }
+}
+
+/* ---------------------------------------
+=          SMALL DEVICE STYLES           =
+--------------------------------------- */
+@media screen and (max-width: 850px) {
+  header {
+    .wrapper {
+      overflow: hidden;
+      .nav-btn {
+        display: block;
+        position: absolute;
+        right: 34px;
+        top: 34px;
+        z-index: 100;
+      }
+
+      nav {
+        background: $dark;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        text-align: center;
+        visibility: hidden;
+        width: 100%;
+
+        transition: opacity .35s, visibility .35s, height .35s;
+        &.open {
+          height: 100%;
+          opacity: 1;
+          visibility: visible;
+          a {
+            display: block;
+            position: relative;
+            margin-bottom: 100px;
+            padding: 0;
+            color: $white;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 8px;
+            opacity: 0;
+            width: 100%;
+            animation: fadeInRight .35s ease forwards;
+            animation-delay: .35s;
+            &:nth-of-type(2) {
+              animation-delay: .4s;
+            }
+            &:nth-of-type(3) {
+              animation-delay: .45s
+            }
+            &:first-child {
+              margin-top: 100px;
+            }
+            &:after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 0%;
+              transform: translateX(-50%);
+              height: 2px;
+              background: $white;
+              transition: .35s
+            }
+            &:hover, &:focus, &:active {
+              color: $highlight;
+              &:after {
+                width: 65%;
+                background: $highlight;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #banner .featured_wrapper {
+    width: 750px;
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    .featured_image {
+      width: 200px;
+      margin: 0 auto 25px;
+      float: none;
+    }
+    .content {
+      margin-left: 0;
+      .rating {
+        display: block;
+        margin: 15px 0 0 0;
+      }
+      .description {
+        color: $white;
+        padding-top: 2rem;
+        line-height: 1.35rem;
+      }
+      .price {
+        color: $white;
+        font-size: 1.5rem;
+        padding: 2rem 0;
+      }
+      .button {
+        margin: 10px auto;
+        width: 80%;
+      }
+    }
+  }
+
+  #contact {
+    display: block;
+    .contact_left {
+      width: 100%;
+      .contact_left_wrapper {
+        .title {
+          font-size: 2.4rem;
+          line-height: 2.9;
+        }
+        .email_field {
+          width: 70%;
+        }
+      }
+    }
+    .contact_right {
+      width: 100%;
+      height: 100vw;
+      clear: left;
+      float: left;
+      .contact_banner {
+        height: 80px;
+        .title {
+          padding: 1.5rem;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+/* ---------------------------------------
+=                ANIMATION               =
+--------------------------------------- */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
